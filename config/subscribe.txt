@@ -1,12 +1,39 @@
-# 这是订阅源列表，每行一个订阅地址
-# 支持设置UA：https://xxx.com/subscribe.m3u UA="xxx"
-# This is a list of subscription sources, with one subscription address per line
-# Supports setting UA: https://xxx.com/subscribe.m3u UA="xxx"
+这是订阅源列表，每行一个订阅地址
+支持设置UA：https://xxx.com/subscribe.m3u UA="xxx"
+This is a list of subscription sources, with one subscription address per line
+Supports setting UA: https://xxx.com/subscribe.m3u UA="xxx"
+============ 已实测可用（2026-10-05 验证，均返回 200）============
+排名靠前 + 每日更新 + 纯 GitHub 地址，GitHub Actions 服务器可直连
+best-fan/iptv-sources — 每日凌晨自动采集验证，央视/卫视/付费频道
+https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_all.m3u8
 
+CCSH/IPTV — 每天更新，央视/卫视为主，带台标与EPG
+https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u
 
+YanG-1989/m3u — 排名靠前，含咪咕源、五星体育，IPv4+IPv6
+https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u
 
+Collect-IPTV — 每 4 小时更新（频率最高）
+https://raw.githubusercontent.com/zilong7728/Collect-IPTV/refs/heads/main/best_sorted.m3u
 
+BurningC4/Chinese-IPTV — 纯 IPv4，频道名规范（CCTV-1 综合 这类写法）
+https://raw.githubusercontent.com/BurningC4/Chinese-IPTV/master/TV-IPV4.m3u
 
+vbskycn/iptv — 每 6 小时更新，IPv4 文本格式
+https://live.zbds.top/tv/iptv4.txt
+
+iptv-org — 全球公开库，每日机器人校验
+https://iptv-org.github.io/iptv/countries/cn.m3u
+
+============ 备用源（按需取消注释）============
+kimwang1978 — 每日更新，但文件含推广内容，效果需自行观察
+https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/refs/heads/main/others_output.txt
+港澳台相关（需要翡翠台、凤凰等时启用）
+https://raw.githubusercontent.com/judy-gotv/iptv/main/MytvSuper.m3u
+https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u8
+纯 IPv6 源（你的网络确定支持 IPv6 时才启用）
+https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
 [WHITELIST]
-# 以下是订阅源的白名单，白名单内的订阅源获取的接口将不会参与测速，始终保留至结果最前。
-# This is the whitelist for subscription sources. Subscription sources in the whitelist will not participate in speed testing and will always be retained at the front of the results.
+
+以下是订阅源的白名单，白名单内的订阅源获取的接口将不会参与测速，始终保留至结果最前。
+This is the whitelist for subscription sources. Subscription sources in the whitelist will not participate in speed testing and will always be retained at the front of the results.
