@@ -1,3 +1,24 @@
 # 这是EPG订阅列表，用于生成M3U结果频道菜单信息
 # This is the EPG subscription list used to generate M3U result channel menu information
-http://e.erw.cc/e.xml.gz
+#
+# 说明 / Notes:
+# - 每行一个订阅地址，按顺序读取，最多生效 3 个（源码 SUBSCRIBE_EPG_MAX_SOURCES = 3）
+# - 请求失败或无频道匹配的源会被自动禁用（open_auto_disable_source = True），下次不再重试
+# - 单个源解压后不得超过 256MB（EPG_MAX_DECOMPRESSED_BYTES），否则会被直接拒收
+# - 来源可叠加合并：不同源的同频道节目会自动去重、按优先级覆盖
+#
+# 2026-10-05 实测（基于本仓库 106 个频道的 tvg-id 统计命中率）：
+#   112114   450 频道 / 2.1MB，命中 75/106 (70%)，速度快，CCTV-1 缺失
+#   51zmt    101 频道 / 1.0MB，命中 56/106 (52%)，补上 CCTV-1 / CETV-1 / 凤凰
+#   两者合并 命中 79/106 (74%)
+#   另有 15606 频道 / 350MB 的大型源，命中 86/106 (81%)，但超出 256MB 上限会被拒收，故不启用
+#   原 e.erw.cc 已永久失效（连接被重置 / SSL EOF），已移除
+#
+
+# ============ EPG 源（实测可用）============
+
+# 【推荐】112114 — 速度快、覆盖广，央视各频道 + 大部分卫视/地方台
+https://epg.112114.xyz/pp.xml.gz
+
+# 【推荐】老张的EPG (51zmt) — 补充 112114 缺失的 CCTV-1、CETV-1、凤凰中文/资讯
+http://epg.51zmt.top:8000/e.xml.gz
