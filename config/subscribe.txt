@@ -43,11 +43,11 @@ https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u
 #
 # 私人源 — 约 220 个频道，含 CCTV-4K/8K、熊猫频道1-10、央视农业农村、CGTN 各语种、
 # 陕西系列、经典影视等；实测可补上 CCTV-8K、CGTN英语、五星体育频道、淮安新闻综合。
-# 该源无 UA 会返回 403，必须带 UA。
+# 该源无 UA 会返回 403，必须带 UA（实测 okhttp/TiviMate/OkHttp 均可，此处用你指定的）。
 #
 # 注意：实际订阅地址已放在文件末尾的 [WHITELIST] 段里（豁免测速），此处不再重复。
 # 下面这行保留作注释参考：
-# https://live.ottiptv.cc/iptv.m3u?userid=629321307&sign=...(略)&auth_token=...(略) UA="okhttp/4.9.0"
+# https://live.ottiptv.cc/iptv.m3u?userid=629321307&sign=...(略)&auth_token=...(略) UA="okHttp/Mod-1.5.0.0"
 
 
 # ============ 已移除的源（说明）============
@@ -68,4 +68,4 @@ https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u
 #       会被 min_speed / resolution_speed_map 门槛全刷掉（实测 0 条入选）。
 # 放在 [WHITELIST] 段后，该源获取的接口 origin 会被标记为 whitelist，
 #       从而跳过速度与分辨率过滤（RETAIN_ORIGINS = {whitelist, hls}）。
-https://live.ottiptv.cc/iptv.m3u?userid=629321307&sign=ebfa631a748b77a55ee27357fe9b58fb44b10e3b294fbd5a04b69cf321e99bfe21058b8b7bbe6dca1a2ddec7f2f85ed038eded9ca14ebcb1bff13d17ac09cbf21ee57863a8ad&auth_token=975911f26300c0ab539b7b8a36608b24 UA="okhttp/4.9.0"
+https://live.ottiptv.cc/iptv.m3u?userid=629321307&sign=ebfa631a748b77a55ee27357fe9b58fb44b10e3b294fbd5a04b69cf321e99bfe21058b8b7bbe6dca1a2ddec7f2f85ed038eded9ca14ebcb1bff13d17ac09cbf21ee57863a8ad&auth_token=975911f26300c0ab539b7b8a36608b24 UA="okHttp/Mod-1.5.0.0"
