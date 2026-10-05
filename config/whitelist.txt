@@ -14,8 +14,8 @@
 # 以下区域是关键字白名单，某频道获取到的接口地址中含有指定关键字，则该接口会被加入该频道的白名单，多条记录换行输入。
 # This area is the keyword whitelist. If the interface address obtained by a certain channel contains the specified keyword, the interface will be added to the whitelist of the channel, with multiple records entered on new lines.
 
-# 私人源（ottiptv 付费线路）的所有流地址豁免测速与速率过滤。
-# 原因：该源用的是「嵌套 m3u8 索引」——索引本身很小、测速拿不到真实码率，
-#       会被 min_speed / resolution_speed_map 门槛全部刷掉（实测 0 条入选）。
-# 命中关键字的接口 origin 会被标记为 whitelist，从而跳过速度与分辨率过滤（RETAIN_ORIGINS）。
-ottiptv.cc
+# （曾在此加过 ottiptv.cc 关键字，2026-10-06 已移除）
+# 原因：这个文件配的是「流地址」，管不到「订阅源」。订阅源的豁免要写进
+#       config/subscribe.txt 的 [WHITELIST] 段（由 _build_channel_item 把接口
+#       origin 标记为 whitelist）。留着这条规则只会让大量嵌套 m3u8 索引去探测
+#       真实分片，把一次更新从 12 分钟拖到 38 分钟。
