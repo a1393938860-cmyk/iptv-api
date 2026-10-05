@@ -36,6 +36,17 @@ https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u
 # https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
 
 
+# ============ 私人源（付费，需鉴权）============
+# ⚠️ 警告：本文件在公开仓库中，下面这行含账号凭据，会随仓库公开。
+#    同时订阅源地址会被写进 output/log/unmatch.jsonl，而该文件每天公开发布在 Release 资产里。
+#    如需完全保密，请改用 config/subscribe_private.txt + .gitignore 方案。
+#
+# 私人源 — 约 220 个频道，含 CCTV-4K/8K、熊猫频道1-10、央视农业农村、CGTN 各语种、
+# 陕西系列、经典影视等；实测可补上 CCTV-8K、CGTN英语、五星体育频道、淮安新闻综合。
+# 该源无 UA 会返回 403，必须带 UA。
+https://live.ottiptv.cc/iptv.m3u?userid=629321307&sign=ebfa631a748b77a55ee27357fe9b58fb44b10e3b294fbd5a04b69cf321e99bfe21058b8b7bbe6dca1a2ddec7f2f85ed038eded9ca14ebcb1bff13d17ac09cbf21ee57863a8ad&auth_token=975911f26300c0ab539b7b8a36608b24 UA="okhttp/4.9.0"
+
+
 # ============ 已移除的源（说明）============
 # kimwang1978 — 虽有 15308 条数据（占总量77%），但会导致运行时间
 #   从约20分钟暴涨到近3小时，且有超时失败风险，故移除。
