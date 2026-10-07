@@ -2,3 +2,9 @@
 # This is the interface blacklist list, the interface matching the keyword will be blocked, one keyword line
 /audio/
 bxtv.3a.ink
+
+# av3a：AV1/AV3A 音频编码的源，播放器普遍解码不了，出声异常或无声。
+# 私人源（ottiptv.cc）里 CCTV-1~17、CCTV-5+、CCTV-4K/8K 的 av3a 版本属于此类，
+# 路径形如 /mcp/cctv1av3asfhd.m3u8、/mcp/cctv4kav3ahdr.m3u8。
+# 2026-10-07 加入：实测线上 20 条 av3a 源全部来自私人源，音量异常。
+av3a

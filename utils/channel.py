@@ -362,7 +362,9 @@ def get_channel_items(whitelist_maps, blacklist, reporter=None) -> CategoryChann
                     continue
                 info_url = info.get("url")
                 try:
-                    if info.get("origin") in retain_origin or check_url_by_keywords(info_url, blacklist):
+                    if check_url_by_keywords(info_url, blacklist):
+                        continue
+                    if info.get("origin") in retain_origin:
                         continue
                     if check_channel_need_frozen(info):
                         mark_url_bad(info_url, initial=True)
@@ -522,8 +524,10 @@ def append_data_to_info_data(
                     continue
                 if is_url_frozen(normalized_url):
                     continue
-                if blacklist and check_url_by_keywords(normalized_url, blacklist):
-                    continue
+            # The blacklist is a hard exclusion: it applies to every origin,
+            # including whitelist/hls entries that otherwise skip filtering.
+            if blacklist and check_url_by_keywords(normalized_url, blacklist):
+                continue
 
             channel_id = stable_result_id(normalized_url, headers)
 
