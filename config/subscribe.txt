@@ -77,4 +77,4 @@ https://raw.githubusercontent.com/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u
 #
 # ⚠️ 安全提示：本文件在公开仓库中，下面这行含账号凭据，会随仓库公开；
 #    订阅地址还会被写进 output/log/unmatch.jsonl，该文件每天公开发布在 Release 资产里。
-https://live.ottiptv.cc/iptv.m3u?userid=629321307&sign=ebfa631a748b77a55ee27357fe9b58fb44b10e3b294fbd5a04b69cf321e99bfe21058b8b7bbe6dca1a2ddec7f2f85ed038eded9ca14ebcb1bff13d17ac09cbf21ee57863a8ad&auth_token=975911f26300c0ab539b7b8a36608b24 UA="okHttp/Mod-1.5.0.0"
+https://live.ottiptv.cc/iptv.m3u?userid=629321307&sign=6f46b93ef88af6a0ac815de0d16ee8a76cb502301f49250df17b746c9b372f609a7194fd2b2721b5f2a61bb20b7002d589c64b0453d6efc4212f8257f83a7fcf56d80b7f3995&auth_token=975911f26300c0ab539b7b8a36608b24 UA="okHttp/Mod-1.5.0.0"
