@@ -1,5 +1,12 @@
-# 这是接口黑名单列表，符合关键字的接口将被拦截，一个关键字一行
-# This is the interface blacklist list, the interface matching the keyword will be blocked, one keyword line
+# ============================================================================
+# 接口黑名单 / Interface blacklist
+# ----------------------------------------------------------------------------
+# 一个关键字一行，流地址（播放接口）包含该关键字即被剔除。
+# 注意：这是硬排除，对**所有来源**生效，包括 subscribe.txt 里 [WHITELIST] 段的
+#       白名单源和 hls 源（2026-10-07 修复过一次：原先白名单源会绕过黑名单）。
+# 本文件管的是流地址，管不到订阅源；要屏蔽整个订阅源请从 subscribe.txt 删除该行。
+# This is the interface blacklist, one keyword per line. Matching interfaces are blocked.
+# ============================================================================
 /audio/
 bxtv.3a.ink
 

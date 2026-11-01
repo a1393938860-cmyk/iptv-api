@@ -1,21 +1,26 @@
-# 这是接口的白名单，白名单内的接口将不会参与测速，始终保留至结果最前；
-# 填写频道名称会直接保留该记录至该频道的最终结果，如：CCTV-1,接口地址；
-# 如果不填写频道名称，则该地址会被加入到所有频道的结果中，多条记录换行输入。
-# This is the whitelist for interfaces. Interfaces in the whitelist will not be speed tested and will always be kept at the top of the results;
-# Filling in the channel name will directly retain the record to the final result of the channel, such as: CCTV-1, interface address;
-# If the channel name is not filled in, the address will be added to the results of all channels, with multiple records entered on new lines.
+# ============================================================================
+# 接口白名单 / Interface whitelist
+# ----------------------------------------------------------------------------
+# 注意：本文件管的是「流地址」（播放接口），不是「订阅源」。
+#   想让某个订阅源整体跳过测速，要写 config/subscribe.txt 的 [WHITELIST] 段。
+#
+# 两种写法：
+#   1. 主段（[WHITELIST] 之前）：直接写 频道名称,接口地址
+#      该接口会被固定保留到指定频道的最终结果里。
+#   2. [KEYWORDS] 段：某频道抓到的接口地址含指定关键字时，自动加入该频道白名单。
+# ============================================================================
 
 
+# ---------- 一、按「频道 + 接口」精确指定 ----------
+# 格式：频道名称,接口地址
+# 留空表示不使用；不写频道名则会把该地址加入所有频道结果。
+[WHITELIST]
 
 
-
-
+# ---------- 二、按「关键字」匹配 ----------
+# 曾在此加过 ottiptv.cc 关键字，2026-10-06 已移除，原因：
+#   这个文件配的是流地址，管不到订阅源；订阅源的豁免在 subscribe.txt 的
+#   [WHITELIST] 段（由 _build_channel_item 把接口 origin 标记为 whitelist）。
+#   留着这条规则只会让大量嵌套 m3u8 索引去探测真实分片，
+#   把一次更新从 12 分钟拖到 38 分钟。
 [KEYWORDS]
-# 以下区域是关键字白名单，某频道获取到的接口地址中含有指定关键字，则该接口会被加入该频道的白名单，多条记录换行输入。
-# This area is the keyword whitelist. If the interface address obtained by a certain channel contains the specified keyword, the interface will be added to the whitelist of the channel, with multiple records entered on new lines.
-
-# （曾在此加过 ottiptv.cc 关键字，2026-10-06 已移除）
-# 原因：这个文件配的是「流地址」，管不到「订阅源」。订阅源的豁免要写进
-#       config/subscribe.txt 的 [WHITELIST] 段（由 _build_channel_item 把接口
-#       origin 标记为 whitelist）。留着这条规则只会让大量嵌套 m3u8 索引去探测
-#       真实分片，把一次更新从 12 分钟拖到 38 分钟。
