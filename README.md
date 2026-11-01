@@ -64,6 +64,7 @@
 <summary><strong>目录</strong></summary>
 
 - [✅ 核心特性](#核心特性)
+- [🧭 架构与运行流程](#架构与运行流程)
 - [⚙️ 配置参数](#配置)
 - [🚀 快速上手](#快速上手)
     - [配置与结果目录](#配置与结果目录)
@@ -82,11 +83,6 @@
 </details>
 
 ## 赞助商
-
-| 赞助商 | 服务介绍                                                                                                                                                                                                                                                                                                                                                              |
-|:---:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <a href="https://helodata.com?ref=iptvapi1"><img src="./docs/images/helodata.png" alt="Helodata" width="150"></a> | <p align="center"><a href="https://helodata.com?ref=iptvapi1"><img src="./docs/images/helodata-banner.png" alt="Helodata 全球代理网络" width="720"></a></p><a href="https://helodata.com?ref=iptvapi1"><strong>Helodata</strong></a> 提供全球代理基础设施，覆盖 195+国家和地区，拥有8000万+ 合规授权住宅 IP，并支持住宅、ISP、移动及数据中心代理等，为 AI、爬虫与自动化应用提供稳定可靠的数据访问。使用优惠码 <strong><code>iptvapi</code></strong> 可享专属折扣。                     |
-| <a href="https://www.ipwo.net/?ref=githubGuovin"><img src="./docs/images/ipwo.webp" alt="IPWO" width="150"></a> | <p align="center"><a href="https://www.ipwo.net/?ref=githubGuovin"><img src="./docs/images/ipwo-banner.png" alt="IPWO 住宅代理网络" width="720"></a></p><a href="https://www.ipwo.net/?ref=githubGuovin"><strong>IPWO</strong></a> 提供稳定的住宅代理网络，适用于公开数据采集、接口调试、自动化测试与多地区访问验证等合规场景。支持 HTTP / HTTPS / SOCKS5，优惠码：<strong><code>0105</code></strong>。请在合法授权并遵守目标站点条款的前提下使用。 |
 
 <p align="center">
   <a href="mailto:360996299@qq.com?subject=%E6%88%90%E4%B8%BA%E8%B5%9E%E5%8A%A9%E5%95%86">成为赞助商</a>
@@ -112,6 +108,18 @@
 | **暂&#8288;停&#8288;与&#8288;继&#8288;续** |  ✅   | 桌面端更新过程中可暂停，并从当前进度继续                         |
 | **多&#8288;平&#8288;台&#8288;部&#8288;署** |  ✅   | 工作流、命令行、GUI 软件、Docker (amd64/arm64/arm v7) |
 | **更&#8288;多&#8288;功&#8288;能**  |  ✨   | 详见[配置参数](#配置)章节                            |
+
+## 架构与运行流程
+
+桌面 GUI、命令行、Docker 与 GitHub Actions 共用同一套更新引擎：读取配置与频道模板，采集并匹配候选接口，按测速模式筛选，再生成播放列表及相关数据。不同运行方式负责各自的任务触发与结果访问。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/images/architecture/overview-zh-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./docs/images/architecture/overview-zh.svg">
+  <img src="./docs/images/architecture/overview-zh.svg" alt="运行入口、共享更新引擎与结果访问方式" width="100%">
+</picture>
+
+本地结果可由 GUI 或文件直接读取，也可通过独立 HTTP 服务访问；GitHub Actions 将结果发布到 Pages 与 Release。推流按需依赖 FFmpeg 与带 RTMP 模块的 Nginx。详见[架构文档](./docs/architecture.md)中的更新阶段、桌面页面与组件依赖，以及[教程中的部署与推流图解](./docs/tutorial.md)。
 
 ## 配置
 
@@ -239,6 +247,8 @@ iptv-api/                  # 项目根目录
 ```
 
 ### 工作流
+
+可直接访问主仓库的 [GitHub Pages 结果页](https://guovin.github.io/iptv-api/)，复制所需的在线链接到播放器订阅，也可预览或下载结果文件。使用主仓库结果无需 Fork 或运行工作流；如需使用自己的配置生成结果，请继续以下部署步骤。
 
 > [!WARNING]
 > GitHub Actions 仅支持低频手动生成，结果通过 Pages Artifact 和每次运行独立的预发布版发布，不再提交到 Git。
